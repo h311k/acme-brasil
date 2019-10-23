@@ -1,0 +1,190 @@
+h3, h4, h5, p, a {
+  font-family: 'Roboto',sans-serif;
+}
+
+h3, h4, h5 {
+  color: #005594;
+  font-weight: 900;
+}
+
+.nav-link {
+  color: #005594 !important;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.saudacao-home, .link-home:hover, .link-breadcrumb:hover {
+  color: #ffbf00;
+}
+
+.link-home, .link-breadcrumb {
+  cursor: pointer;
+}
+
+.desktop {
+  height: calc(100vh - 86px);
+  /* height: 100%; */
+  background-color: #00325a;
+}
+.desktop > .container {
+  padding-top: 5%;
+}
+
+/* cards do desktop da home */
+.item-desktop {
+  margin-top: 20px;
+  width: 18rem;
+  cursor: pointer;
+}
+
+/* bloco de conteudo */
+.bloco-conteudo {
+  height: calc(100vh - 86px);
+  background-color: #ffffff;
+  display: none;
+}
+
+/* estilo da tabela */
+th {
+  background-color: #00325a;
+  color: #ffffff;
+}
+
+.fa-pencil-alt, .fa-clock, .fa-filter {
+  cursor: pointer;
+}
+
+.filtros-wrapper{
+  position: relative;
+}
+.filtros{
+  background-color: #e9eef0;
+  border:1px solid #ccd7dd;
+  border-radius: 0 0 .25rem .25rem;
+  margin-bottom: 10px;
+  padding:.9rem 1rem 1rem 1rem;
+}
+.filtros.filtros-abas{
+  border-top:1px solid #ccd7dd;
+  border-radius: .25rem;
+}
+.filtros .btn{
+  margin-bottom: 0;
+}
+.modal .filtros{
+  border-top:1px solid #ccd7dd;
+  border-radius: .25rem;
+}
+.abre-fecha-filtros{
+  height: 20px;
+  position: absolute;
+  right:5px;
+  text-align: right;
+  top:0;
+  width: 20px;
+}
+.abre-fecha-filtros:hover{
+  text-decoration: none;
+}
+.abre-fecha-filtros:after{
+  content: "\f146";
+  font-family: "Font Awesome 5 Free";
+}
+.abre-fecha-filtros.collapsed{
+  width: 100%;
+  position: relative;
+  display: block;
+  right: 0;
+}
+.abre-fecha-filtros.collapsed:before{
+  content:"Mostrar filtros ";
+}
+.abre-fecha-filtros.collapsed:after{
+  content: "\f0fe";
+  font-family: "Font Awesome 5 Free";
+}
+
+/* estilo dos modais */
+.btn-adicionar-remover-campo {
+  font-size: 12px;
+}
+
+.modal-header {
+  background-color: #00325a;
+  color: #ffffff;
+}
+.modal-title {
+  color: #ffffff;
+}
+
+/* estilos da timeline */
+.bloco-timeline, .dados-acao {
+  padding-top: 20px;
+}
+.bloco-detalhes-cliente {
+  border-right: groove;
+}
+
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    width: 100%;
+}
+ul.timeline:before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    left: 29px;
+    width: 2px;
+    height: 100%;
+    z-index: 400;
+}
+ul.timeline > li {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+ul.timeline > li:before {
+    content: ' ';
+    background: white;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #00325a;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 400;
+}
+ul.timeline a {
+  color: #00325a;
+}
+
+/* Funil de vendas */
+.raias {
+  min-height: 65vh;
+}
+
+.envelope-raia {
+  min-height: inherit;
+}
+
+.raia {
+  background-color: #e9eef0;
+  margin-right: 15px;
+  border:1px solid #ccd7dd;
+  border-radius: .25rem .25rem .25rem .25rem;
+  margin-bottom: 10px;
+  padding:.9rem 1rem 1rem 1rem;
+  min-height: inherit;
+}
+
+/* ClienteOferta */
+.cliente-oferta {
+  background-color: #d4d9df;
+  margin-right: 15px;
+  border:1px solid #ccd7dd;
+  border-radius: .25rem .25rem .25rem .25rem;
+  margin-bottom: 10px;
+  padding:.9rem 1rem 1rem 1rem;
+}
