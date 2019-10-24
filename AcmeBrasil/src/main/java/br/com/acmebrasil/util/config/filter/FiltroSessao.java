@@ -1,6 +1,8 @@
 package br.com.acmebrasil.util.config.filter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -21,13 +23,15 @@ import org.springframework.stereotype.Component;
 @Component
 @WebFilter("/api/*")
 public class FiltroSessao implements Filter {
-	
-    /**
-     * Default constructor. 
-     */
-    public FiltroSessao() {
-        // TODO Auto-generated constructor stub
-    }
+
+	private List<String> urlsAbertas;
+
+	/**
+	 * Default constructor.
+	 */
+	public FiltroSessao() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -39,9 +43,11 @@ public class FiltroSessao implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		Object sessao = ((HttpServletRequest) request).getSession().getAttribute("usuario");
-		if(sessao==null){
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		if (sessao == null && !urlsAbertas.stream().anyMatch(s -> httpServletRequest.getRequestURI().contains(s))) {
 			HttpServletResponse resposta = (HttpServletResponse) response;
 			resposta.setStatus(Status.UNAUTHORIZED.getStatusCode());
 		} else {
@@ -54,7 +60,10 @@ public class FiltroSessao implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-
+		urlsAbertas = new ArrayList<>();
+		urlsAbertas.add("usuario/salva");
+		urlsAbertas.add("usuario/autentica");
+		urlsAbertas.add("usuario/testa");
 	}
 
 }

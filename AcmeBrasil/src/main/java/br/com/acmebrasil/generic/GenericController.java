@@ -10,5 +10,5 @@ public abstract class GenericController<T> {
 	protected T service;
 
 	protected ObjectMapper mapper = new ObjectMapper();
-
+	
 }
