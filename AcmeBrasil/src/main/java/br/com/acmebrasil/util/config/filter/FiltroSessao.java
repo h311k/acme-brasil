@@ -47,7 +47,7 @@ public class FiltroSessao implements Filter {
 			throws IOException, ServletException {
 		Object sessao = ((HttpServletRequest) request).getSession().getAttribute("usuario");
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-		if (sessao == null && !urlsAbertas.stream().anyMatch(s -> httpServletRequest.getRequestURI().contains(s))) {
+		if (sessao == null && !urlsAbertas.stream().anyMatch(s -> httpServletRequest.getRequestURI().contains(s)) && !httpServletRequest.getRequestURI().contentEquals("/")) {
 			HttpServletResponse resposta = (HttpServletResponse) response;
 			resposta.setStatus(Status.UNAUTHORIZED.getStatusCode());
 		} else {
@@ -64,6 +64,7 @@ public class FiltroSessao implements Filter {
 		urlsAbertas.add("usuario/salva");
 		urlsAbertas.add("usuario/autentica");
 		urlsAbertas.add("usuario/testa");
+		urlsAbertas.add("componentes");
 	}
 
 }

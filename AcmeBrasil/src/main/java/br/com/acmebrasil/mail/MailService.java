@@ -25,7 +25,7 @@ public class MailService extends GenericService<MailRepository> {
 	}
 	
 	protected Mail buscaPorFinalidadeEmail(FinalidadeEmail finalidadeEmail) {
-		return repository.findByFinalidadeEmail(finalidadeEmail);
+		return repository.findByFinalidade(finalidadeEmail);
 	}
 
 }

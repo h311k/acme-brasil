@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 interface MailRepository extends JpaRepository<Mail, Long> {
 
-	Mail findByFinalidadeEmail(FinalidadeEmail finalidadeEmail);
+	Mail findByFinalidade(FinalidadeEmail finalidade);
 
 }
