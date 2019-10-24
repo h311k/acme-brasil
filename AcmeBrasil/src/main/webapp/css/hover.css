@@ -1724,8 +1724,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: #2098D1; */
-  background: #005594;
+  background: #2098D1;
   -webkit-transform: scale(0);
   transform: scale(0);
   -webkit-transition-property: transform;
@@ -2187,7 +2186,7 @@
   left: 51%;
   right: 51%;
   bottom: 0;
-  background: #ffbf00;
+  background: #2098D1;
   height: 4px;
   -webkit-transition-property: left, right;
   transition-property: left, right;
@@ -4148,3 +4147,5 @@
   width: 25px;
   height: 25px;
 }
+
+/*# sourceMappingURL=hover.css.map */
