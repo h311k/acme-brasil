@@ -65,6 +65,9 @@ public class FiltroSessao implements Filter {
 		urlsAbertas.add("usuario/autentica");
 		urlsAbertas.add("usuario/testa");
 		urlsAbertas.add("componentes");
+		urlsAbertas.add("js");
+		urlsAbertas.add("css");
+		urlsAbertas.add("img");
 	}
 
 }
