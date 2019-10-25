@@ -24,8 +24,11 @@ function salvaUsuario() {
   .done(function(data) {
     console.log(data);
     //Chamar a tela de login.
+    $('.desktop').load('componentes/usuario/login/login.html');
+    $.getScript('componentes/usuario/login/login.js');
   })
   .fail(function(erro) {
+    console.log(erro);
     // Exibir modal de erro e botar foco no campo de email
     console.log(erro.entity);
   })

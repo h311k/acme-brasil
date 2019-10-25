@@ -22,6 +22,8 @@ function autenticaUsuario() {
   })
   .done(function(data) {
     console.log(data);
+    $('.desktop').load('componentes/admin/mail/novo-mail.html');
+    $.getScript('componentes/admin/mail/novo-mail.js');
   })
   .fail(function(erro) {
     console.log(erro);
