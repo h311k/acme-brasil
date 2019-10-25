@@ -3,6 +3,6 @@ $(document).ready(function() {
 });
 
 function redirectLogin() {
-  $('.desktop').load('componentes/login/login.html');
-  $.getScript('componentes/login/login.js');
+  $('.desktop').load('componentes/usuario/novo-usuario/novo-usuario.html');
+  $.getScript('componentes/usuario/novo-usuario/novo-usuario.js');
 }

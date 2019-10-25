@@ -1,21 +1,21 @@
 $(document).ready(function() {
-  $('.bloco-conteudo').show('slow');
-  efetuaLogin();
+  eventoSalvarUsuario($('#criar-conta'));
 });
 
-function efetuaLogin() {
-  $('#login').click(function(event) {
-    autenticaUsuario();
+function eventoSalvarUsuario(btnSalvar) {
+  $(btnSalvar).click(function(event) {
+    salvaUsuario();
   });
 }
 
-function autenticaUsuario() {
+function salvaUsuario() {
   let usuario = {
     email: $('#email').val(),
     senha: $('#senha').val()
   }
+  console.log(usuario);
   $.ajax({
-    url: '../usuario/autentica',
+    url: '../usuario/salva',
     type: 'POST',
     dataType: 'json',
     data: JSON.stringify(usuario),
@@ -23,12 +23,13 @@ function autenticaUsuario() {
   })
   .done(function(data) {
     console.log(data);
+    //Chamar a tela de login.
   })
-  .fail(function() {
-    console.log("error");
+  .fail(function(erro) {
+    // Exibir modal de erro e botar foco no campo de email
+    console.log(erro.entity);
   })
   .always(function() {
     console.log("complete");
   });
-
 }
