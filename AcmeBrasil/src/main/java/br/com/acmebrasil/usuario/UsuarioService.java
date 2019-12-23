@@ -5,9 +5,12 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.acmebrasil.generic.GenericService;
+import br.com.acmebrasil.mail.FinalidadeEmail;
+import br.com.acmebrasil.mail.MailService;
 import br.com.acmebrasil.util.exception.NegocioException;
 import br.com.acmebrasil.util.security.Security;
 
@@ -15,6 +18,9 @@ import br.com.acmebrasil.util.security.Security;
 public class UsuarioService extends GenericService<UsuarioRepository> {
 
 	Security security = new Security();
+	
+	@Autowired
+	MailService mailService;
 
 	protected Usuario autentica(Usuario usuario) throws NegocioException {
 		Optional<Usuario> usuarioEncontrado = repository.findByEmailAndSenha(usuario.getEmail(), security.geraMD5(usuario.getSenha()));
@@ -38,9 +44,9 @@ public class UsuarioService extends GenericService<UsuarioRepository> {
 		}
 		usuario.setSenha(security.geraMD5(usuario.getSenha()));
 		usuario.setDataCriacao(new Date());
-		usuario.setAtivo(true);
+		usuario.setAtivo(true); //mudar para false depois de terminado o envio de email.
 		repository.save(usuario);
-		// Adicionar aqui o envio do email de ativacao do usuario.
+		mailService.enviaEmail(usuario, FinalidadeEmail.ATIVACAO_USUARIO);
 		return usuario;
 	}
 	

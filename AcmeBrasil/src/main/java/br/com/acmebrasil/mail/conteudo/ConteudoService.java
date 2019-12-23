@@ -1,10 +1,12 @@
 package br.com.acmebrasil.mail.conteudo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import br.com.acmebrasil.generic.GenericService;
+import br.com.acmebrasil.mail.Mail;
 
 @Service
 public class ConteudoService extends GenericService<ConteudoRepository> {
@@ -20,6 +22,13 @@ public class ConteudoService extends GenericService<ConteudoRepository> {
 
 	protected List<Conteudo> lista() {
 		return repository.findAll();
+	}
+	
+	public Optional<Conteudo> findById(Mail mail) {
+		ConteudoUsuario conteudoUsuario = new ConteudoUsuario();
+		conteudoUsuario.setMail(mail);
+		conteudoUsuario.setUsuario(super.getUsuario());
+		return repository.findById(conteudoUsuario);
 	}
 
 }
